@@ -58,3 +58,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Build/
+PolygonPrototype/
+PolygonPrototype.meta
+Library/
+Temp/
+Debug/
