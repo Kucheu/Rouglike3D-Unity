@@ -44,7 +44,6 @@ public class MapGenerator : MonoBehaviour
 
             if(direction == 1 && RoomIsAvaible(currentRow - 1 ,currentColumn))
             {
-                Debug.Log("North " + currentRow + " " + currentColumn);
                 rooms[currentRow, currentColumn].northWall = ChangeWall(rooms[currentRow, currentColumn].northWall);
                 rooms[currentRow - 1, currentColumn].southWall = ChangeWall(rooms[currentRow-1, currentColumn].southWall);
                 currentRow--;
@@ -53,7 +52,6 @@ public class MapGenerator : MonoBehaviour
                 //North
             } else if(direction == 2 && RoomIsAvaible(currentRow, currentColumn + 1))
             {
-                Debug.Log("East " + currentRow + " " + currentColumn);
                 rooms[currentRow, currentColumn].eastWall = ChangeWall(rooms[currentRow, currentColumn].eastWall);
                 rooms[currentRow, currentColumn + 1].westWall = ChangeWall(rooms[currentRow, currentColumn + 1].westWall);
                 currentColumn++;
@@ -63,7 +61,6 @@ public class MapGenerator : MonoBehaviour
             }
             else if( direction == 3 && RoomIsAvaible(currentRow + 1, currentColumn))
             {
-                Debug.Log("South " + currentRow + " " + currentColumn);
                 rooms[currentRow, currentColumn].southWall = ChangeWall(rooms[currentRow, currentColumn].southWall);
                 rooms[currentRow + 1, currentColumn].northWall = ChangeWall(rooms[currentRow + 1, currentColumn].northWall);
                 currentRow++;
@@ -72,7 +69,6 @@ public class MapGenerator : MonoBehaviour
                 //South
             } else if (direction == 4 && RoomIsAvaible(currentRow, currentColumn - 1))
             {
-                Debug.Log("West " + currentRow + " " + currentColumn);
                 rooms[currentRow, currentColumn].westWall = ChangeWall(rooms[currentRow, currentColumn].westWall);
                 rooms[currentRow, currentColumn - 1].eastWall = ChangeWall(rooms[currentRow, currentColumn - 1].eastWall);
                 currentColumn--;

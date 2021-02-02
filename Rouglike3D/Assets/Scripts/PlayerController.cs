@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Audio;
 public class PlayerController : MonoBehaviour
 {
     //https://github.com/Acacia-Developer/Unity-FPS-Controller/   source
-    [SerializeField] Transform playerCamera = null;
-    [SerializeField] float mouseSensitivity = 3.5f;
-    [SerializeField] float walkSpeed = 6.0f;
-    [SerializeField] float gravity = -13.0f;
-    [SerializeField] [Range(0.0f, 0.5f)] float moveSmoothTime = 0.3f;
-    [SerializeField] [Range(0.0f, 0.5f)] float mouseSmoothTime = 0.03f;
+     public Transform playerCamera = null;
+    [SerializeField] public float walkSpeed = 6.0f;
+    [SerializeField] public float gravity = -13.0f;
+    
+    [Range(0.0f, 0.5f)] public float moveSmoothTime = 0.3f;
+    [Range(0.0f, 0.5f)] public float mouseSmoothTime = 0.03f;
 
-    [SerializeField] bool lockCursor = true;
+
+
+    //options
+    public float mouseSensitivity;
+
+
 
     float cameraPitch = 0.0f;
     float velocityY = 0.0f;
@@ -27,15 +32,16 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        if (lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1f;
     }
 
     void Update()
     {
+        mouseSensitivity = GameManager.options.mouseSensitivity;
+
         UpdateMouseLook();
         UpdateMovement();
     }
@@ -69,5 +75,10 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
+    }
+
+    public void LoadJSONOption(string JSON)
+    {
+        Debug.Log("xd");
     }
 }
