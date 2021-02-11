@@ -59,11 +59,10 @@ sysinfo.txt
 crashlytics-build.properties
 
 Build/
-PolygonPrototype/
 PolygonPrototype.meta
 Library/
 Temp/
 Debug/
-TextureHaven/
+OutsideAssets/
 OutsiteUnity/
 [Ll]ibrary/
